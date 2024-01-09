@@ -1,8 +1,11 @@
 import React from 'react'
+/* FontAwesome */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBell } from '@fortawesome/free-regular-svg-icons'
 import { faGear, faBars } from '@fortawesome/free-solid-svg-icons'
+/* Chakra UI */
 import { Flex, Box, Button, useDisclosure } from '@chakra-ui/react'
+/* assets */
 import profileImage from '@/assets/profile.jpeg'
 import smallLogo from '@/assets/small_logo.png'
 import Image from 'next/image'

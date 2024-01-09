@@ -1,5 +1,7 @@
 import React from 'react'
+/* Chakra UI */
 import { Box, Flex, Text, Heading } from '@chakra-ui/react'
+/* Components */
 import LineChart from '../LineChart'
 const PaymentChart = () => {
   const labels = [

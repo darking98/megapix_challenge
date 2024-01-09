@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+/* Chakra UI */
 import { Box } from '@chakra-ui/react'
+/* Chart */
 import { Line } from 'react-chartjs-2'
 import Annotation from 'chartjs-plugin-annotation'
 import {

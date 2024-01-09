@@ -4,7 +4,7 @@ import { Link as NextLink } from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 /* Chakra UI */
-import { Box, Flex, Text, Button, Link, useColorMode } from '@chakra-ui/react'
+import { Box, Flex, Text, Button, Link } from '@chakra-ui/react'
 /* FontAwesome */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -89,7 +89,6 @@ export const SidebarItems = ({ isCollapsed }) => {
   )
 }
 const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
-  const { colorMode, toggleColorMode } = useColorMode()
   return (
     <Box
       height='100%'
@@ -118,7 +117,6 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
           width='100%'
           px={0}
           justifyContent={isCollapsed ? 'center' : 'flex-start'}
-          onClick={toggleColorMode}
         >
           <Box mx={3}>
             <FontAwesomeIcon icon={faSun} width='16px' />

@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { Box } from '@chakra-ui/react'
 import HomeLayout from '@/components/home/HomeLayout'
 export default function Home() {
   return (

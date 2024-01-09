@@ -1,4 +1,5 @@
 import React from 'react'
+/* Chakra UI */
 import {
   Drawer as ChakraDrawer,
   DrawerBody,
@@ -6,13 +7,14 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  Flex,
   Button,
   Box,
   Text
 } from '@chakra-ui/react'
+/* FontAwesome */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun } from '@fortawesome/free-solid-svg-icons'
+/* Components */
 import { SidebarItems } from './Sidebar'
 const Drawer = ({ NavbarDesktop, isOpen, onClose }) => {
   return (
