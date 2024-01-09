@@ -85,7 +85,7 @@ const Table = ({ data, columns }) => {
             border='1px solid 1E1E1E'
             my={4}
           >
-            {currentItems.map((transaction) => (
+            {currentItems.length > 0 ? currentItems.map((transaction) => (
               <Tr borderColor='none' key={transaction.id}>
                 {Object.values(transaction).map((value, idx) => (
                   <Td
@@ -104,10 +104,16 @@ const Table = ({ data, columns }) => {
                   </Td>
                 ))}
               </Tr>
-            ))}
+            )) : (
+              <Tr>
+                <Td colSpan={columns.length} textAlign='center'>Debes crear un rol</Td>
+              </Tr>
+            )}
           </Tbody>
         </ChakraTable>
       </TableContainer>
+
+      {/* Pagination */}
       <Flex
         alignItems='center'
         justifyContent='space-between'
