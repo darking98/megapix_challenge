@@ -94,7 +94,35 @@ const NavbarMobile = () => {
             <>
               {item.isMain ? (
                 <Center position='relative'>
-                  <Button variant='navbarMain' onClick={handleOnMain}>
+                  {/* Botones que salen del boton redondo */}
+                  <Flex
+                    position='absolute'
+                    top={isMainOpen ? '-62px' : '100px'}
+                    opacity={isMainOpen ? '1' : '0'}
+                    transition='300ms ease-in-out'
+                  >
+                    {item.childrens.map((children, idx) => (
+                      <Button
+                        key={children.title}
+                        // clipPath={idx === 0 ? 'polygon(76% 0, 100% 0, 100% 88%, 82% 100%, 0 100%, 0 0)' : 'polygon(88%, 82%,88%, 82%, 1% 88%, 82% 100%, 0, 100%, 0 0)'}
+                        background='primary'
+                        color='black'
+                        mx={1}
+                        opacity={isMainOpen ? '1' : '0'}
+                        transition='300ms ease-in-out'
+                      >
+                        <Box mr={1}>{children.icon}</Box>
+                        <Text fontSize='xs'>{children.title}</Text>
+                      </Button>
+                    ))}
+                  </Flex>
+                  {/* Boton redondo color primario */}
+                  <Button
+                    position='absolute'
+                    top='-20px'
+                    variant='navbarMain'
+                    onClick={handleOnMain}
+                  >
                     <Box
                       p={1}
                       border='2px solid black'
@@ -105,6 +133,7 @@ const NavbarMobile = () => {
                       {item.icon}
                     </Box>
                   </Button>
+                  {/* Fin del boton redondo color primario */}
                 </Center>
               ) : (
                 <Link as={NextLink} href={item.path} key={item.title}>

@@ -3,37 +3,37 @@ import {
   faChartSimple,
   faBoxArchive,
   faStore,
-  faMoneyBill,
-  faRightLeft
+  faMoneyBill
 } from '@fortawesome/free-solid-svg-icons'
 import { AiOutlineHome } from "react-icons/ai";
 import { MdOutlineStorefront } from "react-icons/md";
 import { LiaBoxSolid, LiaChartBarSolid  } from "react-icons/lia";
 import { TbArrowsExchange } from "react-icons/tb";
+import { CiMoneyBill } from "react-icons/ci";
 
 export const sidebarItems = [
   {
-    icon: faHouse,
+    icon: <AiOutlineHome />,
     title: 'Home',
     path: '/dashboard'
   },
   {
-    icon: faMoneyBill,
+    icon: <CiMoneyBill />,
     title: 'Cobrar',
     path: '/dashboard/cobrar'
   },
   {
-    icon: faStore,
+    icon: <MdOutlineStorefront />,
     title: 'Tienda',
     path: '/dashboard/tienda'
   },
   {
-    icon: faBoxArchive,
+    icon: <LiaBoxSolid/>,
     title: 'Actividad',
     path: '/dashboard/actividad'
   },
   {
-    icon: faChartSimple,
+    icon: <LiaChartBarSolid/>,
     title: 'Reportes',
     path: '/dashboard/reportes'
   }
@@ -57,7 +57,12 @@ export const navbarMobileItems = [
     isMain: true,
     childrens: [
       {
-        icon: faMoneyBill,
+        icon: <CiMoneyBill />,
+        title: 'Cobrar',
+        path: '/dashboard/cobrar'
+      },
+      {
+        icon: <CiMoneyBill />,
         title: 'Cobrar',
         path: '/dashboard/cobrar'
       }

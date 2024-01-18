@@ -39,8 +39,6 @@ const Button = {
       }
     },
     navbarMain: {
-      position: 'absolute',
-      top: '-20px',
       height: '60px',
       width: '60px',
       background: 'primary',
