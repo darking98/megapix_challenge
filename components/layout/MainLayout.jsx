@@ -35,7 +35,7 @@ const ProtectedLayout = ({ children }) => {
 
 const UnprotectedLayout = ({ children }) => {
   return (
-    <Box height='100vh' background='black'>
+    <Box height='100vh' background='black' color='white'>
       <Flex flexDirection='column' height='100%'>
         <UnprotectedNavbar />
         <Box p={4} height='100%'>
