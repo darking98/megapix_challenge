@@ -97,13 +97,13 @@ const LineChart = ({ customOptions, labels, data }) => {
         yAlign: 'top',
         displayColors: false,
         bodyAlign: 'flex',
-        position:'nearest',
+        position: 'nearest',
         bodyFont: {
           size: 14
         },
         callbacks: {
           title: () => null,
-          label: (tooltipItems, data) => {
+          label: (tooltipItems) => {
             return `${tooltipItems.dataset.label} ${tooltipItems.raw}`
           }
         }

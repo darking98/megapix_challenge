@@ -2,7 +2,7 @@ import React from 'react'
 /* Chakra UI */
 import { Heading } from '@chakra-ui/react'
 /* Components */
-import Table from '../Table'
+import Table from '@/components/Table'
 const Transactions = () => {
   const transactions = [
     {

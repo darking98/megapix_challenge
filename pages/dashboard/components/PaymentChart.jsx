@@ -2,7 +2,7 @@ import React from 'react'
 /* Chakra UI */
 import { Box, Flex, Text, Heading } from '@chakra-ui/react'
 /* Components */
-import LineChart from '../LineChart'
+import LineChart from '@/components/LineChart'
 const PaymentChart = () => {
   const labels = [
     '1 Ene',

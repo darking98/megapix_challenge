@@ -27,16 +27,30 @@ const Button = {
         background: 'darkGray'
       }
     },
-    aside:{
-        height:'52px',
-        justifyContent:'flex-start',
-        p:4,
-        background: 'transparent',
-        borderTopLeftRadius:'0px',
-        borderBottomLeftRadius:'0px',
-        _hover:{
-            background:'#333'
-        }
+    aside: {
+      height: '52px',
+      justifyContent: 'flex-start',
+      p: 4,
+      background: 'transparent',
+      borderTopLeftRadius: '0px',
+      borderBottomLeftRadius: '0px',
+      _hover: {
+        background: '#333'
+      }
+    },
+    navbarMain: {
+      position: 'absolute',
+      top: '-20px',
+      height: '60px',
+      width: '60px',
+      background: 'primary',
+      borderRadius: '50%',
+      color: 'black',
+      fontSize: '18px',
+      _focus: {
+        background: 'primary',
+        opacity: '0.8'
+      }
     }
   }
 }

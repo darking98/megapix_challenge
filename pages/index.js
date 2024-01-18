@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import HomeLayout from '@/components/home/HomeLayout'
+
 export default function Home() {
+
   return (
     <>
       <Head>

@@ -20,36 +20,38 @@ import {
 import logo from '@/assets/full_logo.png'
 import smallLogo from '@/assets/small_logo.png'
 
+
 const items = [
   {
     icon: faHouse,
     title: 'Home',
-    path: '/'
+    path: '/dashboard'
   },
   {
     icon: faMoneyBill,
     title: 'Cobrar',
-    path: '/cobrar'
+    path: '/dashboard/cobrar'
   },
   {
     icon: faStore,
     title: 'Tienda',
-    path: '/tienda'
+    path: '/dashboard/tienda'
   },
   {
     icon: faBoxArchive,
     title: 'Actividad',
-    path: '/actividad'
+    path: '/dashboard/actividad'
   },
   {
     icon: faChartSimple,
     title: 'Reportes',
-    path: '/reportes'
+    path: '/dashboard/reportes'
   }
 ]
 
 export const SidebarItems = ({ isCollapsed }) => {
   const router = useRouter()
+
 
   return (
     <Box py={8} borderBottom='1px solid #5A5A5A' px={isCollapsed ? 2 : 5}>
@@ -95,6 +97,7 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
       width={isCollapsed ? '80px' : '258px'}
       background='gray'
       color='white'
+      position='fixed'
     >
       <Flex
         justifyContent={isCollapsed ? 'center' : 'flex-start'}
