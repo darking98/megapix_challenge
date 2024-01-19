@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { supabase } from '@/functions/supabase'
-import { Button } from '@chakra-ui/react'
+import { Button, Box } from '@chakra-ui/react'
 const Cobrar = () => {
   /*useEffect(() => {
     const getRefreshSession = async () => {
@@ -16,10 +16,10 @@ const Cobrar = () => {
     console.log(req)
   }
   return (
-    <div>
+    <Box color='white'>
       Cobrar
       <Button onClick={handleLogout}>Salir</Button>
-    </div>
+    </Box>
   )
 }
 
