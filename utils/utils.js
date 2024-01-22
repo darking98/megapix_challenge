@@ -1,15 +1,8 @@
-import {
-  faHouse,
-  faChartSimple,
-  faBoxArchive,
-  faStore,
-  faMoneyBill
-} from '@fortawesome/free-solid-svg-icons'
-import { AiOutlineHome } from "react-icons/ai";
-import { MdOutlineStorefront } from "react-icons/md";
-import { LiaBoxSolid, LiaChartBarSolid  } from "react-icons/lia";
-import { TbArrowsExchange } from "react-icons/tb";
-import { CiMoneyBill } from "react-icons/ci";
+import { AiOutlineHome } from 'react-icons/ai'
+import { MdOutlineStorefront } from 'react-icons/md'
+import { LiaBoxSolid, LiaChartBarSolid } from 'react-icons/lia'
+import { TbArrowsExchange } from 'react-icons/tb'
+import { CiMoneyBill } from 'react-icons/ci'
 
 export const sidebarItems = [
   {
@@ -22,18 +15,18 @@ export const sidebarItems = [
     title: 'Cobrar',
     path: '/dashboard/cobrar'
   },
-  {
+  /*{
     icon: <MdOutlineStorefront />,
     title: 'Tienda',
     path: '/dashboard/tienda'
   },
   {
-    icon: <LiaBoxSolid/>,
+    icon: <LiaBoxSolid />,
     title: 'Actividad',
     path: '/dashboard/actividad'
-  },
+  },*/
   {
-    icon: <LiaChartBarSolid/>,
+    icon: <LiaChartBarSolid />,
     title: 'Reportes',
     path: '/dashboard/reportes'
   }
@@ -47,13 +40,13 @@ export const navbarMobileItems = [
     isMain: false
   },
   {
-    icon: <MdOutlineStorefront/>,
+    icon: <MdOutlineStorefront />,
     title: 'Tienda',
     path: '/dashboard/tienda',
     isMain: false
   },
   {
-    icon: <TbArrowsExchange/>,
+    icon: <TbArrowsExchange />,
     isMain: true,
     childrens: [
       {
@@ -63,19 +56,19 @@ export const navbarMobileItems = [
       },
       {
         icon: <CiMoneyBill />,
-        title: 'Cobrar',
+        title: 'Retirar',
         path: '/dashboard/cobrar'
       }
     ]
   },
   {
-    icon: <LiaBoxSolid/>,
+    icon: <LiaBoxSolid />,
     title: 'Actividad',
     path: '/dashboard/actividad',
     isMain: false
   },
   {
-    icon: <LiaChartBarSolid/>,
+    icon: <LiaChartBarSolid />,
     title: 'Reportes',
     path: '/dashboard/reportes',
     isMain: false

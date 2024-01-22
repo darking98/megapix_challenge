@@ -1,9 +1,18 @@
-import React from 'react'
+import { Input as ChakraInput, Text } from '@chakra-ui/react'
+import { useFormContext } from 'react-hook-form'
+const withChakraInput = (Input) => {
+  const WrappedComponent = ({ name, label, type }) => {
+    const { register, errors } = useFormContext()
+    return (
+      <>
+        {label ? <label htmlFor={name}>{label}</label> : null}
+        <Input name={name} type={type} ref={register} />
+        {errors[name] ? <Text>{errors[name].message}</Text> : null}
+      </>
+    )
+  }
 
-const Input = () => {
-  return (
-    <div>Input</div>
-  )
+  return WrappedComponent
 }
 
-export default Input
+export const Input = withChakraInput(ChakraInput)

@@ -5,7 +5,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBell } from '@fortawesome/free-regular-svg-icons'
 import { faGear } from '@fortawesome/free-solid-svg-icons'
 /* Chakra UI */
-import { Flex, Box, Button, Text, Link, Center } from '@chakra-ui/react'
+import {
+  Flex,
+  Box,
+  Button,
+  Text,
+  Link,
+  Center,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem
+} from '@chakra-ui/react'
 /* assets */
 import profileImage from '@/assets/profile.jpeg'
 import logo from '@/assets/full_logo.png'
@@ -13,8 +24,9 @@ import Image from 'next/image'
 /* Components */
 import { Link as NextLink } from 'next/link'
 import { navbarMobileItems } from '@/utils/utils'
-
-const NavbarDesktop = () => {
+/* supabase */
+import { supabase } from '@/functions/supabase'
+const NavbarDesktop = ({ handleLogout }) => {
   return (
     <Box display={{ base: 'none', md: 'block' }}>
       <Button variant='icon'>
@@ -23,18 +35,25 @@ const NavbarDesktop = () => {
       <Button mx='5' variant='icon'>
         <FontAwesomeIcon icon={faGear} width='20px' type='regular' />
       </Button>
-      <Button variant='avatar'>
-        <Image
-          src={profileImage}
-          alt='Foto de perfil'
-          style={{ height: '40px', width: '40px', borderRadius: '50%' }}
-        />
-      </Button>
+      <Menu>
+        <MenuButton>
+          <Button variant='avatar'>
+            <Image
+              src={profileImage}
+              alt='Foto de perfil'
+              style={{ height: '40px', width: '40px', borderRadius: '50%' }}
+            />
+          </Button>
+        </MenuButton>
+        <MenuList>
+          <MenuItem onClick={handleLogout}>Salir</MenuItem>
+        </MenuList>
+      </Menu>
     </Box>
   )
 }
 
-const NavbarMobile = () => {
+const NavbarMobile = ({ handleLogout }) => {
   const [isMainOpen, setIsMainOpen] = useState(false)
 
   const handleOnMain = () => {
@@ -51,13 +70,20 @@ const NavbarMobile = () => {
         alignItems='center'
       >
         <Flex alignItems='center'>
-          <Button variant='avatar'>
-            <Image
-              src={profileImage}
-              alt='Foto de perfil'
-              style={{ height: '40px', width: '40px', borderRadius: '50%' }}
-            />
-          </Button>
+          <Menu>
+            <MenuButton>
+              <Button variant='avatar'>
+                <Image
+                  src={profileImage}
+                  alt='Foto de perfil'
+                  style={{ height: '40px', width: '40px', borderRadius: '50%' }}
+                />
+              </Button>
+            </MenuButton>
+            <MenuList background='black'>
+              <MenuItem onClick={handleLogout}>Salir</MenuItem>
+            </MenuList>
+          </Menu>
           <Box>
             <Button
               variant='transparent'
@@ -101,10 +127,9 @@ const NavbarMobile = () => {
                     opacity={isMainOpen ? '1' : '0'}
                     transition='300ms ease-in-out'
                   >
-                    {item.childrens.map((children, idx) => (
+                    {item.childrens.map((children) => (
                       <Button
                         key={children.title}
-                        // clipPath={idx === 0 ? 'polygon(76% 0, 100% 0, 100% 88%, 82% 100%, 0 100%, 0 0)' : 'polygon(88%, 82%,88%, 82%, 1% 88%, 82% 100%, 0, 100%, 0 0)'}
                         background='primary'
                         color='black'
                         mx={1}
@@ -184,6 +209,9 @@ export const UnprotectedNavbar = () => {
   )
 }
 const Navbar = () => {
+  const handleLogout = async () => {
+    const req = await supabase.auth.signOut()
+  }
   return (
     <Flex
       position='relative'
@@ -196,9 +224,9 @@ const Navbar = () => {
       color='white'
     >
       {/* Componente para navbar de desktop */}
-      <NavbarDesktop />
+      <NavbarDesktop handleLogout={handleLogout} />
       {/* Componente para navbar de mobile */}
-      <NavbarMobile />
+      <NavbarMobile handleLogout={handleLogout} />
     </Flex>
   )
 }

@@ -1,6 +1,7 @@
 const Button = {
   baseStyle: {
-    transition: '150ms ease-in-out'
+    transition: '150ms ease-in-out',
+    fontWeight: '600'
   },
   variants: {
     transparent: {
@@ -8,6 +9,21 @@ const Button = {
       _hover: {
         outline: '1px solid white'
       }
+    },
+    primary: {
+      background: 'primary',
+      borderColor: 'primary',
+      color: 'black',
+      _hover: {
+        _disabled: {
+          bg: 'primary'
+        }
+      }
+    },
+    secondary: {
+      background: 'darkGray',
+      outline: '1px solid white',
+      color: 'white'
     },
     icon: {
       background: 'transparent',

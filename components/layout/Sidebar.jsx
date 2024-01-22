@@ -8,62 +8,28 @@ import { Box, Flex, Text, Button, Link } from '@chakra-ui/react'
 /* FontAwesome */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faHouse,
-  faChartSimple,
-  faBoxArchive,
   faArrowsLeftRightToLine,
-  faSun,
-  faStore,
-  faMoneyBill
+  faSun
 } from '@fortawesome/free-solid-svg-icons'
 /* Assets */
 import logo from '@/assets/full_logo.png'
 import smallLogo from '@/assets/small_logo.png'
-
-
-const items = [
-  {
-    icon: faHouse,
-    title: 'Home',
-    path: '/dashboard'
-  },
-  {
-    icon: faMoneyBill,
-    title: 'Cobrar',
-    path: '/dashboard/cobrar'
-  },
-  {
-    icon: faStore,
-    title: 'Tienda',
-    path: '/dashboard/tienda'
-  },
-  {
-    icon: faBoxArchive,
-    title: 'Actividad',
-    path: '/dashboard/actividad'
-  },
-  {
-    icon: faChartSimple,
-    title: 'Reportes',
-    path: '/dashboard/reportes'
-  }
-]
+import { sidebarItems } from '@/utils/utils'
 
 export const SidebarItems = ({ isCollapsed }) => {
   const router = useRouter()
 
-
   return (
     <Box py={8} borderBottom='1px solid #5A5A5A' px={isCollapsed ? 2 : 5}>
       <Flex flexDirection='column'>
-        {items.map((item) => (
+        {sidebarItems.map((item) => (
           <Link as={NextLink} href={item.path} key={item.title}>
             <Button
               justifyContent={isCollapsed ? 'center' : 'flex-start'}
               width='100%'
               px={0}
               variant='aside'
-              fontWeight={router.pathname === item.path ? 'bold' : 'normal'}
+              fontWeight={router.pathname === item.path ? '600' : 'normal'}
               background={
                 router.pathname === item.path ? '#333' : 'transparent'
               }
@@ -79,9 +45,7 @@ export const SidebarItems = ({ isCollapsed }) => {
                 }
               }
             >
-              <Box mx={3}>
-                <FontAwesomeIcon icon={item.icon} width='16px' />
-              </Box>
+              <Box mx={3}>{item.icon}</Box>
               {!isCollapsed ? <Text>{item.title}</Text> : null}
             </Button>
           </Link>
@@ -120,6 +84,7 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
           width='100%'
           px={0}
           justifyContent={isCollapsed ? 'center' : 'flex-start'}
+          fontWeight='normal'
         >
           <Box mx={3}>
             <FontAwesomeIcon icon={faSun} width='16px' />
@@ -132,6 +97,7 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
           px={0}
           onClick={() => setIsCollapsed(!isCollapsed)}
           justifyContent={isCollapsed ? 'center' : 'flex-start'}
+          fontWeight='normal'
         >
           <Box mx={3}>
             <FontAwesomeIcon icon={faArrowsLeftRightToLine} width='16px' />
