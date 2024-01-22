@@ -10,21 +10,30 @@ import {
 } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
 import { signInWithEmail } from '@/functions/supabase'
+import { handleToast } from '@/functions/toast'
 const Login = () => {
   const toast = useToast()
   const { register, handleSubmit } = useForm()
   const onSubmit = async (data) => {
     if (!data.email) return
-    const request = await signInWithEmail(data.email).then(() =>
-      toast({
+    try {
+      await signInWithEmail(data.email)
+      handleToast({
         title: 'Email enviado correctamente',
-        description: `Te hemos enviado un email con el link para ingresar a ${data.email}`,
+        text: `Te hemos enviado un email con el link para ingresar a ${data.email}`,
         status: 'success',
         duration: 9000,
         isClosable: true
       })
-    )
-    console.log(request)
+    } catch (error) {
+      handleToast({
+        title: 'Hubo un error',
+        text: error.msg,
+        status: 'error',
+        duration: 9000,
+        isClosable: true
+      })
+    }
   }
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 /* Chakra */
 import {
@@ -22,10 +22,8 @@ import argentinaIcon from '@/assets/icons/argentina.svg'
 import usaIcon from '@/assets/icons/united_states.svg'
 /* Components */
 import ModalQr from './components/ModalQr'
-
 const Cobrar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-
   const [arsInput, setArsInput] = useState(0)
   const [usdInput, setUsdInput] = useState(0)
   const [brlInput, setBrlInput] = useState(0)
@@ -79,6 +77,7 @@ const Cobrar = () => {
     },
     currencyChange: `${USD_TO_BRL} BRL = 1 USDT`
   }
+
   return (
     <Container maxW='4xl' p={0}>
       <ModalQr
