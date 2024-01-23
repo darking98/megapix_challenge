@@ -56,14 +56,14 @@ const Cobrar = () => {
 
   const handleArsInput = (e) => {
     setArsInput(e.target.value)
-    setUsdInput(e.target.value / USD_TO_ARS)
-    setBrlInput(e.target.value / ARS_TO_BRL)
+    setUsdInput(parseFloat(e.target.value / USD_TO_ARS).toFixed(2))
+    setBrlInput(parseFloat(e.target.value / ARS_TO_BRL).toFixed(2))
   }
 
   const handleUsdInput = (e) => {
     setUsdInput(e.target.value)
-    setArsInput(e.target.value * USD_TO_ARS)
-    setBrlInput(e.target.value * USD_TO_BRL)
+    setArsInput(parseFloat(e.target.value * USD_TO_ARS).toFixed(2))
+    setBrlInput(parseFloat(e.target.value * USD_TO_BRL).toFixed(2))
   }
 
   const modalData = {

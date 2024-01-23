@@ -11,18 +11,25 @@ export const supabase = createClient(
 )
 
 export async function signInWithEmail(email) {
-  const { data, error } = await supabase.auth.signInWithOtp({
-    email,
-    options: {
-      // set this to false if you do not want the user to be automatically signed up
-      shouldCreateUser: false,
-      emailRedirectTo:
-        process.env.NEXT_PUBLIC_ENV === 'local'
-          ? 'http://localhost:3000/dashboard'
-          : process.env.NEXT_PUBLIC_ENV === 'production' &&
-            'https://megapix-challenge.vercel.app/dashboard'
+  try {
+    console.log('algo')
+    const { data, error } = await supabase.auth.signInWithOtp({
+      email,
+      options: {
+        // set this to false if you do not want the user to be automatically signed up
+        shouldCreateUser: false,
+        emailRedirectTo:
+          process.env.NEXT_PUBLIC_ENV === 'local'
+            ? 'http://localhost:3000/dashboard'
+            : process.env.NEXT_PUBLIC_ENV === 'production' &&
+              'https://megapix-challenge.vercel.app/dashboard'
+      }
+    })
+    if (error) {
+      throw new Error(error)
     }
-  })
-
-  return { data, error }
+    return { data }
+  } catch (error) {
+    throw error
+  }
 }

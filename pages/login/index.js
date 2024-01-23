@@ -1,22 +1,15 @@
 import React from 'react'
-import {
-  Box,
-  Text,
-  Heading,
-  Center,
-  Button,
-  Input,
-  useToast
-} from '@chakra-ui/react'
+import { Box, Text, Heading, Center, Button, Input } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
 import { signInWithEmail } from '@/functions/supabase'
 import { handleToast } from '@/functions/toast'
 const Login = () => {
-  const toast = useToast()
   const { register, handleSubmit } = useForm()
   const onSubmit = async (data) => {
     if (!data.email) return
     try {
+      console.log('algo')
+
       await signInWithEmail(data.email)
       handleToast({
         title: 'Email enviado correctamente',
@@ -28,7 +21,7 @@ const Login = () => {
     } catch (error) {
       handleToast({
         title: 'Hubo un error',
-        text: error.msg,
+        text: error.message,
         status: 'error',
         duration: 9000,
         isClosable: true
