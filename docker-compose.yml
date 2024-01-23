@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  app:
+    image: docker-megapix
+    build: .
+    environment:
+      NEXT_PUBLIC_SUPABASE_URL: ${NEXT_PUBLIC_SUPABASE_URL}
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: ${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+      NEXT_PUBLIC_ENV: ${NEXT_PUBLIC_ENV}
+    ports:
+      - 3000:3000
